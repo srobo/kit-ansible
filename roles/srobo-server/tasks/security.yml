@@ -1,0 +1,26 @@
+- name: Add sudo group
+  group:
+    name: sudo
+    state: present
+  become: yes
+
+- name: Remove root user password
+  user:
+    name: root
+    password: "!"
+  become: yes
+
+- name: Install hardened SSHd Configuration
+  copy:
+    src: sshd_config
+    dest: /etc/ssh/sshd_config
+  become: yes
+  notify:
+    - restart sshd
+
+- name: Install fail2ban
+  apt:
+    name:
+      - fail2ban
+    state: present
+  become: yes
