@@ -31,4 +31,4 @@
       - liblz4-tool
       - file
     state: present
-  become: yes
+  become: true

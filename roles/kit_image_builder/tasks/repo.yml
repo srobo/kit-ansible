@@ -7,18 +7,17 @@
 
 - name: "install repo"
   block:
-    - name: "download repo" 
+    - name: "download repo"
       get_url:
         url: https://storage.googleapis.com/git-repo-downloads/repo
         dest: /usr/local/bin/repo
         mode: "755"
-      become: yes
+      become: true
 
     - name: "update repo to use python 3"
       lineinfile:
         path: /usr/local/bin/repo
         line: "#!/usr/bin/env python3"
         regexp: "^#!/usr/bin/env python"
-      become: yes
+      become: true
   when: not repo_binary.stat.exists
-
