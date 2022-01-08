@@ -1,0 +1,36 @@
+---
+- name: "create builder account"
+  user:
+    name: builder
+    comment: shared builder account
+    shell: /bin/bash
+  become: yes
+
+- name: "Allow any user to login as builder (sudo -u syntax)"
+  lineinfile:
+    path: /etc/sudoers
+    line: "ALL ALL =(builder) NOPASSWD : ALL"
+    validate: /usr/sbin/visudo -cf %s
+  become: yes
+
+- name: "Allow any user to login as builder (sudo su syntax)"
+  lineinfile:
+    path: /etc/sudoers
+    line: "ALL ALL = NOPASSWD : /bin/su builder"
+    validate: /usr/sbin/visudo -cf %s
+  become: yes
+
+- name: "Install development tools"
+  apt:
+    pkg:
+      - tmux
+      - zsh
+      - sl
+      - vim
+      - git
+      - curl
+      - nano
+      - tree
+      - htop
+    state: present
+  become: yes
