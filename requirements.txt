@@ -10,6 +10,14 @@ ansible==4.8.0 \
 ansible-core==2.11.6 \
     --hash=sha256:93d50283c7c5b476debf83dc089b3f679b939a8b9a7b5d628d28daafbb3d303a
     # via ansible
+ansible-lint==5.3.1 \
+    --hash=sha256:4793ce6862ef7f85b3aaa7fa21887fd3e45bae43505640523c9b25928ac992de \
+    --hash=sha256:7d7bc74b9b90c5982be5c274c2afcba5b8073ec88cce793fab463fe6418a25f6
+    # via -r requirements.in
+bracex==2.2.1 \
+    --hash=sha256:096c4b788bf492f7af4e90ef8b5bcbfb99759ae3415ea1b83c9d29a5ed8f9a94 \
+    --hash=sha256:1c8d1296e00ad9a91030ccb4c291f9e4dc7c054f12c707ba3c5ff3e9a81bcd21
+    # via wcmatch
 cffi==1.15.0 \
     --hash=sha256:00c878c90cb53ccfaae6b8bc18ad05d2036553e6d9d1d9dbcf323bbe83854ca3 \
     --hash=sha256:0104fb5ae2391d46a4cb082abdd5c69ea4eab79d8d44eaaf79f1b1fd806ee4c2 \
@@ -66,6 +74,14 @@ click==8.0.3 \
     --hash=sha256:353f466495adaeb40b6b5f592f9f91cb22372351c84caeb068132442a4518ef3 \
     --hash=sha256:410e932b050f5eed773c4cda94de75971c89cdb3155a72a0831139a79e5ecb5b
     # via pip-tools
+colorama==0.4.4 \
+    --hash=sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b \
+    --hash=sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2
+    # via rich
+commonmark==0.9.1 \
+    --hash=sha256:452f9dc859be7f06631ddcb328b6919c67984aca654e5fefb3914d54691aed60 \
+    --hash=sha256:da2f38c92590f83de410ba1a3cbceafbc74fee9def35f9251ba9a971d6d66fd9
+    # via rich
 cryptography==35.0.0 \
     --hash=sha256:07bb7fbfb5de0980590ddfc7f13081520def06dc9ed214000ad4372fb4e3c7f6 \
     --hash=sha256:18d90f4711bf63e2fb21e8c8e51ed8189438e6b35a6d996201ebd98a26abbbe6 \
@@ -88,6 +104,10 @@ cryptography==35.0.0 \
     --hash=sha256:eb80e8a1f91e4b7ef8b33041591e6d89b2b8e122d787e87eeb2b08da71bb16ad \
     --hash=sha256:ebeddd119f526bcf323a89f853afb12e225902a24d29b55fe18dd6fcb2838a76
     # via ansible-core
+enrich==1.2.6 \
+    --hash=sha256:0e99ff57d87f7b5def0ca79917e88fb9351aa0d52e228ee38bff7cd858315fe4 \
+    --hash=sha256:ed0b3ac33495cc95f1ccafaf6c7ec0a0fcabb20f7f7a90121f37eb83a85bf82b
+    # via ansible-lint
 jinja2==3.0.3 \
     --hash=sha256:077ce6014f7b40d03b47d1f1ca4b0fc8328a692bd284016f806ed0eaca390ad8 \
     --hash=sha256:611bb273cd68f3b993fabdc4064fc858c5b47a973cb5aa7999ec1ba405c87cd7
@@ -166,7 +186,9 @@ markupsafe==2.0.1 \
 packaging==21.2 \
     --hash=sha256:096d689d78ca690e4cd8a89568ba06d07ca097e3306a4381635073ca91479966 \
     --hash=sha256:14317396d1e8cdb122989b916fa2c7e9ca8e2be9e8060a6eff75b6b7b4d8a7e0
-    # via ansible-core
+    # via
+    #   ansible-core
+    #   ansible-lint
 pep517==0.12.0 \
     --hash=sha256:931378d93d11b298cf511dd634cf5ea4cb249a28ef84160b3247ee9afb4e8ab0 \
     --hash=sha256:dd884c326898e2c6e11f9e0b64940606a93eb10ea022a2e067959f3a110cf161
@@ -179,6 +201,10 @@ pycparser==2.21 \
     --hash=sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9 \
     --hash=sha256:e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206
     # via cffi
+pygments==2.11.2 \
+    --hash=sha256:44238f1b60a76d78fc8ca0528ee429702aae011c265fe6a8dd8b63049ae41c65 \
+    --hash=sha256:4e426f72023d88d03b2fa258de560726ce890ff3b630f88c21cbb8b2503b8c6a
+    # via rich
 pyparsing==2.4.7 \
     --hash=sha256:c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1 \
     --hash=sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b
@@ -217,15 +243,62 @@ pyyaml==6.0 \
     --hash=sha256:daf496c58a8c52083df09b80c860005194014c3698698d1a57cbcfa182142a3a \
     --hash=sha256:e61ceaab6f49fb8bdfaa0f92c4b57bcfbea54c09277b1b4f7ac376bfb7a7c174 \
     --hash=sha256:f84fbc98b019fef2ee9a1cb3ce93e3187a6df0b2538a651bfb890254ba9f90b5
-    # via ansible-core
+    # via
+    #   ansible-core
+    #   ansible-lint
 resolvelib==0.5.4 \
     --hash=sha256:8113ae3ed6d33c6be0bcbf03ffeb06c0995c099b7b8aaa5ddf2e9b3b3df4e915 \
     --hash=sha256:9b9b80d5c60e4c2a8b7fbf0712c3449dc01d74e215632e5199850c9eca687628
     # via ansible-core
+rich==10.16.2 \
+    --hash=sha256:720974689960e06c2efdb54327f8bf0cdbdf4eae4ad73b6c94213cad405c371b \
+    --hash=sha256:c59d73bd804c90f747c8d7b1d023b88f2a9ac2454224a4aeaf959b21eeb42d03
+    # via
+    #   ansible-lint
+    #   enrich
+ruamel.yaml==0.17.20 \
+    --hash=sha256:4b8a33c1efb2b443a93fcaafcfa4d2e445f8e8c29c528d9f5cdafb7cc9e4004c \
+    --hash=sha256:810eef9c46523a3f77479c66267a4708255ebe806a2d540078408c2227f011af
+    # via ansible-lint
+ruamel.yaml.clib==0.2.6 \
+    --hash=sha256:0847201b767447fc33b9c235780d3aa90357d20dd6108b92be544427bea197dd \
+    --hash=sha256:1070ba9dd7f9370d0513d649420c3b362ac2d687fe78c6e888f5b12bf8bc7bee \
+    --hash=sha256:1866cf2c284a03b9524a5cc00daca56d80057c5ce3cdc86a52020f4c720856f0 \
+    --hash=sha256:221eca6f35076c6ae472a531afa1c223b9c29377e62936f61bc8e6e8bdc5f9e7 \
+    --hash=sha256:31ea73e564a7b5fbbe8188ab8b334393e06d997914a4e184975348f204790277 \
+    --hash=sha256:3fb9575a5acd13031c57a62cc7823e5d2ff8bc3835ba4d94b921b4e6ee664104 \
+    --hash=sha256:4ff604ce439abb20794f05613c374759ce10e3595d1867764dd1ae675b85acbd \
+    --hash=sha256:6e7be2c5bcb297f5b82fee9c665eb2eb7001d1050deaba8471842979293a80b0 \
+    --hash=sha256:72a2b8b2ff0a627496aad76f37a652bcef400fd861721744201ef1b45199ab78 \
+    --hash=sha256:77df077d32921ad46f34816a9a16e6356d8100374579bc35e15bab5d4e9377de \
+    --hash=sha256:78988ed190206672da0f5d50c61afef8f67daa718d614377dcd5e3ed85ab4a99 \
+    --hash=sha256:7b2927e92feb51d830f531de4ccb11b320255ee95e791022555971c466af4527 \
+    --hash=sha256:7f7ecb53ae6848f959db6ae93bdff1740e651809780822270eab111500842a84 \
+    --hash=sha256:825d5fccef6da42f3c8eccd4281af399f21c02b32d98e113dbc631ea6a6ecbc7 \
+    --hash=sha256:846fc8336443106fe23f9b6d6b8c14a53d38cef9a375149d61f99d78782ea468 \
+    --hash=sha256:89221ec6d6026f8ae859c09b9718799fea22c0e8da8b766b0b2c9a9ba2db326b \
+    --hash=sha256:9efef4aab5353387b07f6b22ace0867032b900d8e91674b5d8ea9150db5cae94 \
+    --hash=sha256:a32f8d81ea0c6173ab1b3da956869114cae53ba1e9f72374032e33ba3118c233 \
+    --hash=sha256:a49e0161897901d1ac9c4a79984b8410f450565bbad64dbfcbf76152743a0cdb \
+    --hash=sha256:ada3f400d9923a190ea8b59c8f60680c4ef8a4b0dfae134d2f2ff68429adfab5 \
+    --hash=sha256:bf75d28fa071645c529b5474a550a44686821decebdd00e21127ef1fd566eabe \
+    --hash=sha256:cfdb9389d888c5b74af297e51ce357b800dd844898af9d4a547ffc143fa56751 \
+    --hash=sha256:d67f273097c368265a7b81e152e07fb90ed395df6e552b9fa858c6d2c9f42502 \
+    --hash=sha256:dc6a613d6c74eef5a14a214d433d06291526145431c3b964f5e16529b1842bed \
+    --hash=sha256:de9c6b8a1ba52919ae919f3ae96abb72b994dd0350226e28f3686cb4f142165c
+    # via ruamel.yaml
+tenacity==8.0.1 \
+    --hash=sha256:43242a20e3e73291a28bcbcacfd6e000b02d3857a9a9fff56b297a27afdc932f \
+    --hash=sha256:f78f4ea81b0fabc06728c11dc2a8c01277bfc5181b321a4770471902e3eb844a
+    # via ansible-lint
 tomli==1.2.2 \
     --hash=sha256:c6ce0015eb38820eaf32b5db832dbc26deb3dd427bd5f6556cf0acac2c214fee \
     --hash=sha256:f04066f68f5554911363063a30b108d2b5a5b1a010aa8b6132af78489fe3aade
     # via pep517
+wcmatch==8.3 \
+    --hash=sha256:371072912398af61d1e4e78609e18801c6faecd3cb36c54c82556a60abc965db \
+    --hash=sha256:7141d2c85314253f16b38cb3d6cc0fb612918d407e1df3ccc2be7c86cc259c22
+    # via ansible-lint
 wheel==0.37.0 \
     --hash=sha256:21014b2bd93c6d0034b6ba5d35e4eb284340e09d63c59aef6fc14b0f346146fd \
     --hash=sha256:e2ef7239991699e3355d54f8e968a21bb940a1dbf34a4d226741e64462516fad

@@ -10,6 +10,9 @@
     src: "nftables/{{ inventory_hostname }}.conf"
     dest: /etc/nftables.conf
     validate: "nft -c -f %s"
+    owner: root
+    group: root
+    mode: 0755
   notify:
     - reload firewall
   become: yes
