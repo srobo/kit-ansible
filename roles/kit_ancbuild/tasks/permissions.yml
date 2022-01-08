@@ -1,0 +1,6 @@
+---
+- name: Create srobodl group
+  group:
+    name: srobodl
+    state: present
+  become: true

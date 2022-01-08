@@ -1,0 +1,4 @@
+---
+- include: permissions.yml
+- include: web_server.yml
+- include: web_content.yml

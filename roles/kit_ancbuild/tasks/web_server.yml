@@ -1,0 +1,40 @@
+---
+- name: Install nginx and related
+  apt:
+    name:
+      - nginx
+      - python3-certbot-nginx
+    state: present
+  become: true
+  tags: web_server
+
+- name: Start nginx systemd service
+  systemd:
+    name: nginx
+    state: started
+    enabled: true
+  become: true
+  tags: web_server
+
+- name: Install nginx config
+  copy:
+    src: "nginx/{{ item }}"
+    dest: "/etc/nginx/sites-available/{{ item }}"
+    mode: 0644
+    owner: root
+    group: root
+  become: true
+  tags: web_server
+  loop:
+    - default
+    - srobodl
+
+- name: Enable nginx config
+  file:
+    path: "/etc/nginx/sites-enabled/{{ item }}"
+    src: "/etc/nginx/sites-available/{{ item }}"
+    state: link
+  become: true
+  loop:
+    - default
+    - srobodl

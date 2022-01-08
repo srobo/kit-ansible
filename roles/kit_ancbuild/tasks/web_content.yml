@@ -1,0 +1,20 @@
+---
+- name: Add content for default web page
+  copy:
+    src: default-index.html
+    dest: /var/www/html/index.html
+    owner: root
+    group: root
+    mode: 0644
+  become: true
+  tags: web_content
+
+- name: Create downloads folder
+  file:
+    path: /var/www/srobodl/kit-software
+    state: directory
+    mode: 0770
+    owner: www-data
+    group: srobodl
+  become: true
+  tags: web_content

@@ -1,0 +1,31 @@
+server {
+	listen [::]:443 ssl ipv6only=on;
+
+	ssl_certificate /etc/letsencrypt/live/kit-downloads.studentrobotics.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/kit-downloads.studentrobotics.org/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+	server_name kit-downloads.studentrobotics.org;
+
+	root /var/www/srobodl;
+
+	index index.html index.htm;
+
+	default_type text/plain;
+
+	location / {
+		autoindex on;
+		try_files $uri $uri/ =404;
+	}
+}
+
+server {
+	listen [::]:80;
+	server_name kit-downloads.studentrobotics.org;
+
+	if ($host = kit-downloads.studentrobotics.org) {
+        	return 301 https://$host$request_uri;
+    	}
+	return 404;
+}
