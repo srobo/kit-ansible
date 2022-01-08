@@ -20,6 +20,10 @@ Also useful:
 
 ## Roles
 
+### kit_ancbuild
+
+Role for the Kit Ancilliary Build Server
+
 ### nft-firewall
 
 **Does not contain Non-Fungible Tokens** 🙈

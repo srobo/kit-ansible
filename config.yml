@@ -1,4 +1,4 @@
 ---
-- hosts: all
+- hosts: ancbuild
   roles:
-    - srobo_server
+    - kit_ancbuild

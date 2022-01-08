@@ -1,0 +1,3 @@
+---
+dependencies:
+  - role: srobo_server
