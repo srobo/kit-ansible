@@ -4,12 +4,14 @@
     name: sudo
     state: present
   become: true
+  tags: security
 
 - name: Remove root user password
   user:
     name: root
     password: "!"
   become: true
+  tags: security
 
 - name: Install hardened SSHd Configuration
   copy:
@@ -19,6 +21,7 @@
     group: root
     mode: 0644
   become: true
+  tags: security
   notify:
     - restart sshd
 
@@ -28,3 +31,4 @@
       - fail2ban
     state: present
   become: true
+  tags: security

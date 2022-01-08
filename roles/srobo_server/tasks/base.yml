@@ -3,6 +3,7 @@
   hostname:
     name: "{{ inventory_hostname }}"
   become: true
+  tags: hostname
 
 - name: Copy /etc/hosts
   template:
@@ -11,4 +12,4 @@
     owner: "root"
     mode: 0644
   become: true
-  tags: hosts
+  tags: hostname
