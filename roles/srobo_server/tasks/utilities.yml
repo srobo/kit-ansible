@@ -1,0 +1,16 @@
+---
+- name: Install useful system utilities
+  apt:
+    name:
+      - coreutils
+      - curl
+      - dnsutils
+      - git
+      - mtr-tiny
+      - strace
+      - tmux
+      - vim
+      - wget
+    state: present
+  become: true
+  tags: utils
