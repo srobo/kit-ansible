@@ -1,14 +1,15 @@
+---
 - name: Add sudo group
   group:
     name: sudo
     state: present
-  become: yes
+  become: true
 
 - name: Remove root user password
   user:
     name: root
     password: "!"
-  become: yes
+  become: true
 
 - name: Install hardened SSHd Configuration
   copy:
@@ -17,7 +18,7 @@
     owner: root
     group: root
     mode: 0644
-  become: yes
+  become: true
   notify:
     - restart sshd
 
@@ -26,4 +27,4 @@
     name:
       - fail2ban
     state: present
-  become: yes
+  become: true

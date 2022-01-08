@@ -1,9 +1,11 @@
+---
 - name: Install nftables
   apt:
     name:
       - nftables
     state: present
-  become: yes
+  become: true
+  tags: firewall
 
 - name: Update Firewall config
   template:
@@ -15,5 +17,5 @@
     mode: 0755
   notify:
     - reload firewall
-  become: yes
+  become: true
   tags: firewall

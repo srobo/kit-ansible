@@ -1,7 +1,8 @@
+---
 - name: Set Hostname
   hostname:
     name: "{{ inventory_hostname }}"
-  become: yes
+  become: true
 
 - name: Copy /etc/hosts
   template:
@@ -9,5 +10,5 @@
     dest: /etc/hosts
     owner: "root"
     mode: 0644
-  become: yes
+  become: true
   tags: hosts
