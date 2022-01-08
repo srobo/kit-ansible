@@ -1,0 +1,7 @@
+---
+- name: Apply our MOTD
+  copy:
+    src: "motd"
+    dest: "/etc/motd"
+  become: true
+  tags: hostname
