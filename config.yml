@@ -1,8 +1,10 @@
 ---
+- hosts: all
+  roles:
+    - srobo_server
 - hosts: ancbuild
   roles:
     - kit_ancbuild
 - hosts: build
   roles:
-    - srobo_server
     - kit_image_builder
